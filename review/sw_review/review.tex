@@ -1,0 +1,294 @@
+%
+% HW-Review Template 
+% ===========================================================================
+% Autor: Wacher Tim
+% 
+
+\input{preamble}
+\title{Software Review}
+\author{Wacher Tim}
+
+
+\begin{document}
+\ \\[0cm]
+\begin{tikzpicture}
+\draw(0,0)--(\textwidth,0)--(\textwidth,-2cm)--(0,-2cm)--(0,0);
+\node at (0.32\textwidth,-1){%
+\begin{minipage}[t]{0.6\textwidth}
+\huge{\textsf{Software Review}}\\[0.5ex]
+\large{\textsf{Projektname:}}\\[0.6ex]
+\large{\textsf{Modul:}}
+\end{minipage}
+};
+\node at (\textwidth+3mm,-1.25){%
+\begin{minipage}[t]{0.8\textwidth}
+\textsf{Version:}\\[1.8mm]
+\textsf{Reviewer:}\\[1.8mm]
+\textsf{Datum:}\\
+\end{minipage}
+};
+
+
+\AddToShipoutPicture{%
+\put(80,40){%
+\begin{tikzpicture}
+\draw(0,0.8cm)--(\textwidth,0.8);
+\node at(140mm,4mm)[anchor=west]{\textsf{page \arabic{page}}};
+\end{tikzpicture}
+}}
+
+
+\AddToShipoutPicture{%
+\put(80,760){%
+\begin{tikzpicture}
+\draw(0,-0.8cm)--(\textwidth,-0.8);
+\node[inner sep=0pt] (russell) at (1,0)
+    {\includegraphics[width=.075\textwidth]{img/icon.png}};
+\end{tikzpicture}
+}}
+
+\draw (0.6\textwidth,0)--(0.6\textwidth,-2cm);
+\draw (0.6\textwidth,-0.666cm)--(\textwidth,-0.666cm);
+\draw (0.6\textwidth,-1.333cm)--(\textwidth,-1.333cm);
+\draw (0.77\textwidth,0)--(0.77\textwidth,-2cm);
+\end{tikzpicture}
+
+
+% ===========================================================================
+\section{SW-Review Zusammenfassung}
+
+\textbf{Notwendige Änderungen:} \newline
+\kommentarfeld[23] 
+
+% ===========================================================================
+\section{Allgemein}
+
+\requirement[2.1 (advisory), {Ist der Header der Files und jeder Funktion beschreibend 
+genug}, Approved]
+
+\requirement[2.2 (advisory), {Jedes File kompiliert alleine ohne Fehler/Warnings (auch Header-Files)}, Approved]
+
+\requirement[2.3 (advisory), {Revision History enthält alle Änderungen}, Approved]
+
+\requirement[2.4 (advisory), {Gibt es unerreichbare Codeabschnitte (auskommentierter Code 
+oder nicht erreichbarer Code) welche entfernt werden sollten}, Approved]
+
+\requirement[2.5 (advisory), {Musste der Autor gefragt werden was der Code macht (Code 
+sollte selbsterklärend sein)}, Approved]
+
+% ===========================================================================
+\section{Comments}
+
+\requirement[3.1 (advisory), {Entspricht der Kommentar dem Code}, Approved]
+
+\requirement[3.2 (advisory), {Jede Funktion beschreibt die notwendigen Paramter (vor 
+allem jene welche verändert werden) und mögliche Funktions-Abhängigkeiten}, Approved]
+
+\requirement[3.3 (advisory), {Kein überflüssiger Kommentar \newline 
+(z.B.\,\, \textit{i++; \,\,\,// increment i)})}, Approved]
+
+% ===========================================================================
+\section{Coding Standards}
+
+\requirement[4.1 (advisory), {Konstanten und Literale sind nicht hard coded}, Approved]
+
+\requirement[4.2 (advisory), {Debug-Fehlermeldungen sind verständlich und komplett}, Approved]
+
+\requirement[4.3 (advisory), {Die Struktur des Codes wird durch Einrücken verdeutlicht (keine Hard-Tabs)}, Approved]
+
+\requirement[4.4 (advisory), {Klammern schaffen Klarheit und werden grosszügig eingesetzt}, Approved]
+
+\requirement[4.5 (advisory), {Der Code-Style ist innerhalb des Moduls konsistent und gut strukturiert}, Approved]
+
+\requirement[4.6 (advisory), {Assembler-Code wird geeignet gekapselt (innerhalb Macro/Funktion 
+oder seperatem Assembler-File)}, Approved]
+
+\requirement[4.7 (advisory), {Es gibt keine auskommentierten Codeabschnitte (es werden 
+\#if or \#ifdef Preprocessorbefehle eingesetzt)}, Approved]
+
+\requirement[4.8 (advisory), {goto oder continue Befehle werden nicht verwendet}, Approved]
+
+\requirement[4.9 (advisory), {Makros mit Argumenten wurden durch inline Funktionen ersetzt}, Approved]
+
+% ===========================================================================
+\section{Kontrollstrukturen}
+
+\requirement[5.1 (required), {Korrekte Klammersetzung bei Blöcken von Schlaufen 
+und Verzweigungen}, Approved]
+
+\requirement[5.2 (required), {Schlaufen: \begin{itemize}
+\item Endbedingung von Schlaufen überprüft
+\item Schalufen-Zähler werden korrekt initialisiert (vor der Schlaufe)
+\item Alle Schlaufen-Variablen werden vor der Schlaufe initialisiert
+\end{itemize}}, Approved]
+
+\requirement[5.3 (required), {Switch Verzweigung: \begin{itemize}
+\item Gibt es einen default case
+\item Jeder non-empty switch case wird mit einem break abgeschlossen
+\end{itemize}}, Approved]
+
+\requirement[5.4 (required), {if ... else if  Verzweigung: \begin{itemize}
+\item Werden die meist eintreffenden Fälle zuerst getestet
+\item Wird der else Fall behandelt
+\end{itemize}}, Approved]
+
+\requirement[5.5 (advisory), {Der Geltungsbereich von Kontrollstrukturen (switch, while, 
+do ... while, for, if, else if und else ) wird durch geschweifte Klammern verdeutlicht}, Approved]
+
+
+% ===========================================================================
+\section{Variablen}
+
+\requirement[6.1 (required), {Alle Variablen werden vor der Verwendung initialiert}, Approved]
+
+\requirement[6.2 (required), {Haben alle Variablen den korrekten Typ oder Cast}, Approved]
+
+\requirement[6.3 (required), {Geltungsbereich von Variablen: \begin{itemize}
+\item Wurden globale Variablen minimal eingesetzt
+\item Haben alle Variablen den kleinst möglichen Geltungsbereich
+\end{itemize}}, Approved]
+
+\requirement[6.4 (advisory), {Werden globale Variablen korrekt initialisiert (behalten diese 
+bei einem Reset den notwendigen Wert)}, Approved]
+
+\requirement[6.5 (advisory), {Gibt es redundante oder unbenutzte Variablen}, Approved]
+
+\requirement[6.6 (advisory), {Alle Variablen haben einen klaren und beschreibenden Namen}, Approved]
+
+% ===========================================================================
+\section{Datentypen}
+
+\requirement[7.1 (required), {Verwendung von portablen Datentypen (z.B. uint32\_t)}, Approved]
+
+\requirement[7.2 (required), {Wurde das Vorzeichen des Datentyps bei der Deklaration 
+spezifiziert (Verwendung von unsigned/signed)}, Approved]
+
+\requirement[7.3 (required), {Wurden Datentypen mit typedef deklariert}, Approved]
+
+
+% ===========================================================================
+\section{volatile}
+
+\requirement[9.1 (required), {Alle Memmory-Mapped Peripherie Register sind als volatile 
+deklariert}, Approved]
+
+\requirement[9.2 (required), {Globale Variablen welche in ISR verwendet werden sind als 
+volatile deklariert}, Approved]
+
+\requirement[9.3 (required), {Globale Variablen welche aus unterschiedlichen Tasks verwendet 
+werden sind als volatile deklariert (auch wenn durch Mutex/Semaphore geschützt)}, Approved]
+
+% ===========================================================================
+\section{Array}
+
+\requirement[10.1 (required), {Array Indizes sind innerhalb der definierten Grenzen}, Approved]
+
+\requirement[10.2 (required), {Wird das Verlassen der Bereichsgrenzen von Array-Indizes 
+überprüft (dies gilt auch für Pointer)}, Approved]
+
+\requirement[10.3 (required), {Auf $\mu$Controller keine grossen lokalen Arrays (Stackoverflow)}, Approved]
+
+% ===========================================================================
+\section{Logic/Arithmetic}
+
+\requirement[11.1 (required), {Division durch Null abgefangen/überprüft}, Approved]
+
+\requirement[11.2 (required), {Kein Vergleich von Floating-Point Zahlen auf Gleichheit}, Approved]
+
+\requirement[11.3 (required), {Wird dynamisch allozierter Speicher wieder korrekt freigegeben 
+(nur allozierter Speicher freigeben)}, Approved]
+
+\requirement[11.4 (required), {Der Zugriff auf externe Devices wird durch Timeouts geschützt}, Approved]
+
+\requirement[11.5 (required), {Gibt es eine Chance auf einen mathematischen Overflow/Underflow 
+(ist dies abgefangen)}, Approved]
+
+\requirement[11.6 (required), {Ist der Einstatz von Bitweise, Relationale und Logischen 
+Operatoren korrekt (korrekter Einsatz von ==, =, \&\&, \&, etc.; 
+korrekt geklammert (a \& 0x01) == 0 $\rightarrow$ Gleich bindet mehr als \&)}, Approved]
+
+% ===========================================================================
+\section{Devensive Programmierweise}
+
+\requirement[12.1 (required), {Werden Paramter beim Funktionseintritt auf ihre 
+Gültigkeit überprüft (sanity checking)}, Approved]
+
+\requirement[12.2 (required), {Rückgabewerte von Funktionen (vor allem Fehlermeldungen) 
+werden überprüft}, Approved]
+
+\requirement[12.3 (required), {Wird auf mögliche NULL-Pointer hin getestet}, Approved]
+
+
+% ===========================================================================
+\section{Funktionen}
+
+\requirement[13.1 (required), {Werden alle lokalen Funktionsvariablen zu Beginn initialisiert}, Approved]
+
+\requirement[13.2 (required), {Werden Fehlerwerte generiert und der aufrufenden 
+Funktion zurückgegeben}, Approved]
+
+\requirement[13.3 (required), {Ist die Funktion im minimalen Geltungsbereich definiert}, Approved]
+
+\requirement[13.4 (advisory), {Alle Funktionen haben einen klaren und beschreibenden Namen}, Approved]
+
+\requirement[13.5 (advisory), {Gibt es nicht verwendete Funktionen welche gelöscht werden könnten}, Approved]
+
+\requirement[13.6 (advisory), {Sind Funktionen nicht zu komplex (allenfalls Aufteilung in mehrere 
+Funktionen; Richtwert: ausgedruckt max. 1 A4-Seite)}, Approved]
+
+\requirement[13.7 (advisory), {Gibt es redundanten Code welcher in einer Funktion gekapselt werden kann}, Approved]
+
+\requirement[13.8 (advisory), {Jede Funktion hat nur einen Exit-Punkt (keine return Statement in der 
+Mitte der Funktion)}, Approved]
+
+% ===========================================================================
+\section{Multithreading}
+
+\requirement[14.1 (required), {Sind Task-Prioritäten sinnvoll gewählt}, Approved]
+
+\requirement[14.2 (required), {Kontrolle der Stackauslastung der einzelnen Tasks}, Approved]
+
+\requirement[14.3 (required), {Semaphoren/Mutex: \begin{itemize}
+\item Zugriff auf kritische Abschnitte ist geschützt
+\item Jede angeforderte Semaphore/Mutex wird wieder zurückgegeben
+\item Alle Semaphoren/Mutex werden in der selben Reihenfolge angefordert und 
+in umgekehrter Reihenfolge zurückgegeben (Vermeidung von Deadlocks) 
+\item Zum Schutz von kritischen Abschnitten werden Mutexe verwendet (Vermeidung 
+von Priority Inversion)
+\item Es wird kein Task gelöscht welcher eine Semaphore/Mutex belegt
+\item Rekursive Mutexe werden korrekt eingesetzt (Verschachtelung)
+\end{itemize}}, Approved]
+
+\requirement[14.4 (required), {Es werden keine non-reentrant Funktionen aus den Tasks 
+aufgerufen (Vorsicht bei Library-Funktionen)}, Approved]
+
+% ===========================================================================
+\section{Interrupt Service Routine}
+
+\requirement[15.1 (required), {Innerhalb von ISR werden nur geeignete RTOS-API Funktionen 
+aufgerufen}, Approved]
+
+\requirement[15.2 (required), {Es werden keine non-reentrant Funktionen aus der ISR 
+aufgerufen (Vorsicht bei Library-Funktionen)}, Approved]
+
+\requirement[15.3 (advisory), {ISR ist so kurz als möglich gehalten}, Approved]
+
+% ===========================================================================
+\section{$\mu$Controller-Peripherie}
+
+\requirement[16.1 (required), {Watchdog: \begin{itemize}
+\item Sinnvolles Timeout gewählt
+\item Reset des Watchdogs an geeigneten Orten (nicht zu tief verschachtelt)
+\item  Initialisierungsvorgang durch Watchdog geschützt
+\item Spricht der Watchdog an (Test durch forcieren eines Watchdog-Resets 
+an einigen Code-Stellen)
+\end{itemize}}, Approved]
+
+
+
+% ===========================================================================
+\end{document}
+%
+% ===========================================================================
+% EOF
+%
