@@ -1,0 +1,85 @@
+%
+% Generic Wireless Link - IMC Mittelbauprojekt
+% ===========================================================================
+% Autor: Wacher Tim
+% 
+
+\chapter{Einleitung}
+\label{chap:einleitung}
+
+% ===========================================================================
+\section{Allgemeines}
+\label{sec:einleitung_allgemeines}
+
+\lipsum[1-3]
+
+
+% ===========================================================================
+\section{HTML-Code}
+\label{sec:einleitung_html}
+
+\begin{lstlisting}[style=LangXML, caption=Anfrage von jQuery an ein Servlet, 
+label=lst:entscheidungen_ui_jquery]
+<HTML>
+    <HEAD>
+        <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({  
+                type: "GET",  
+                url: "/servlet/test",
+                success: function(data) {
+                    alert(data);
+                }
+            });
+        });
+        </script>
+    </HEAD>
+    ...
+\end{lstlisting}
+
+% ===========================================================================
+\section{JAVA-Code}
+\label{sec:einleitung_java}
+
+\begin{lstlisting}[style=LangJava, caption=Annotationen für die Klasse User, 
+label=lst:entscheidungen_db_orm_user]
+@Entity
+@Table (name="USER_TABLE")
+public class User {
+
+    //----- Data ---------------------------------------------------------------
+    @Id @GeneratedValue (strategy=GenerationType.AUTO)
+    @Column(name="ID")
+    private long id;
+    
+    @Column(name="NAME")
+    private String name;
+    
+    @Column(name="INFORMATION")
+    private String information;
+    //----- Implementation -----------------------------------------------------
+    
+    // Getter and setter methods for all attributes
+}
+\end{lstlisting}
+
+% ===========================================================================
+\section{C-Code}
+\label{sec:einleitung_C}
+
+\begin{lstlisting}[style=LangC, caption=Kodieren einer JSon Nachricht mit Jansson, 
+label=lst:entscheidungen_ifhosttarget_jsonnson]
+json_t  psMsg = NULL;
+char   *pcJsonText = NULL;
+
+psMsg = json_pack("{s:s,s:s}", "KEY1", "VALUE1", "KEY2", "VALUE2");
+pcJsonText = json_dumps(psMsg, JSON_COMPACT);
+printf("%s\n", pcJsonText);
+// Ausgabe: {"KEY1":"VALUE1","KEY2":"VALUE2"}
+\end{lstlisting}
+
+%
+% ===========================================================================
+% EOF
+%

@@ -1,0 +1,30 @@
+%
+% Generic Wireless Link - IMC Mittelbauprojekt
+% ===========================================================================
+% Autor: Wacher Tim
+% 
+
+\include{kapitel/preamble}
+
+\begin{document}
+
+  \frontmatter
+    \input{kapitel/titel}
+    \input{kapitel/abstract}
+    %\setcounter{page}{1}
+    \tableofcontents
+
+  \mainmatter
+    %\part{Hauptteil}
+    \input{kapitel/01_einleitung}
+    \input{kapitel/literaturverzeichnis}
+	\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+	\listoftables
+    \listoffigures
+    \lstlistoflistings
+    \appendix
+    \initAnhang{}
+    \anhang{kapitel/glossar}
+  %\backmatter
+
+\end{document}

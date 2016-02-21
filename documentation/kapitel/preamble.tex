@@ -1,0 +1,311 @@
+%% Buchvorlage unter Verwendung der Book-Klasse des KOMA-Script      %%
+%% Basierend auf einer TeXNicCenter-Vorlage von Mark Müller          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Wählen Sie die Optionen aus, indem Sie % vor der Option entfernen  
+% Dokumentation des KOMA-Script-Packets: scrguide
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optionen zum Layout des Buchs                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[
+a4paper,                        % alle weiteren Papierformat einstellbar
+%landscape,                     % Querformat
+%10pt,                          % Schriftgre (12pt, 11pt (Standard))
+%BCOR1cm,                       % Bindekorrektur, bspw. 1 cm
+%DIVcalc,                       % führt die Satzspiegelberechnung neu aus s. scrguide 2.4
+%oneside,                       % einseitiges Layout
+%twocolumn,                     % zweispaltiger Satz
+openany,                        % Kapitel knnen auch auf linken Seiten beginnen
+%halfparskip*,                  % Absatzformatierung s. scrguide 3.1
+headsepline,                    % Trennline zum Seitenkopf    
+footsepline,                    % Trennline zum Seitenfuss
+%notitlepage,                   % in-page-Titel, keine eigene Titelseite
+%chapterprefix,                  % vor Kapitelberschrift wird "Kapitel Nummer" gesetzt
+appendixprefix,                 % Anhang wird "Anhang" vor die Überschrift gesetzt 
+%normalheadings,                % berschriften etwas kleiner (smallheadings)
+%idxtotoc,                       % Index im Inhaltsverzeichnis
+%liststotoc,                    % Abb.- und Tab.verzeichnis im Inhalt
+%bibtotoc,                      % Literaturverzeichnis im Inhalt
+%leqno,                         % Nummerierung von Gleichungen links
+%fleqn,                          % Ausgabe von Gleichungen linksbndig
+%draft                          % Überlangen Zeilen in Ausgabe gekennzeichnet
+]
+{scrbook}
+\usepackage{a4wide}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Deutsche Anpassung                                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[ngerman]{babel}            % deutsch, neue Rechtschreibung
+%\usepackage[T1]{fontenc}               % Silbentrennung bei Umlauten
+%\usepackage[utf8]{inputenc}            % Zeichencodierung
+\usepackage{german, ngerman}
+\usepackage[german]{babel}
+
+%Eingabe von ü,ä,ö,ß erlauben
+% unter Linux:
+\usepackage[latin1]{inputenc}
+% unter Windows:
+%\usepackage[ansinew]{inputenc}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Einstellungen                                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\pagestyle{empty}              % keine Kopf und Fuzeile (k. Seitenzahl)
+%\pagestyle{headings}           % lebender Kolumnentitel  
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Unterscheidung zw. pdf und dvi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ifpdf}
+
+
+% Text 1:1 Übernehmen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{verbatim} 
+
+
+% Links im PDF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+  \usepackage[
+  pdftex,
+  colorlinks,               % Schrift in Farbe, sonst mit Rahmen
+  bookmarksnumbered,        % Inhaltsverzeichnis mit Numerierung
+  bookmarksopen,            % Öffnet das Inhaltsverzeichnis
+  %pdfstartview=FitH,       % startet mit Seitenbreite
+  linkcolor=blue,          % standard red
+  citecolor=blue,           % standard green
+  urlcolor=blue,         % standard cyan
+  filecolor=blue            %
+  ]
+  {hyperref}
+\fi
+
+
+% Farben
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+  \usepackage[pdftex]{color}
+\else
+  \usepackage[dvips]{color}
+\fi
+
+% Fonts für pdfLaTeX, falls keine cm-super-Fonts installiert
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+    %\usepackage{ae}        % Benutzen Sie nur
+    %\usepackage{zefonts}      % eines dieser Pakete
+\else
+    %%Normales LaTeX - keine speziellen Fontpackages notwendig
+\fi
+
+
+% Packages für Grafiken & Abbildungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf %%Einbindung von Grafiken mittels \includegraphics{datei}
+    \usepackage[pdftex]{graphicx} %%Grafiken in pdfLaTeX
+    \usepackage{epstopdf}
+\else
+    \usepackage[dvips]{graphicx} %%Grafiken und normales LaTeX
+\fi
+%\usepackage[hang]{subfigure} %%Mehrere Teilabbildungen in einer Abbildung
+%\usepackage{pst-all} %%PSTricks - nicht verwendbar mit pdfLaTeX
+\usepackage{wrapfig}
+\usepackage{pdfpages}
+
+% optischer Randausgleich, falls pdflatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+  \usepackage[activate]{pdfcprot}
+\fi
+
+
+% Bibliographiestil
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{natbib}
+
+
+% Tabellen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}            % Tabellenlinien verschiedener StÃ¤rken
+\usepackage{tabularx}            % fixe Gesamtbreite
+\usepackage{threeparttable}      % Tabellen mit Fussnoten
+\usepackage{multirow}            % Zeilen verbinden
+
+
+% Diagramme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,mindmap,trees}
+
+
+% Listings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\definecolor{Grey}{rgb}{0.5,0.5.0.5}
+\definecolor{LightGrey}{rgb}{0.95,0.95,0.95}
+\definecolor{Blue}{rgb}{0,0,1}
+\definecolor{White}{rgb}{1,1,1}
+\definecolor{Red}{rgb}{1,0,0}
+\definecolor{Green}{rgb}{0,0.5,0}   
+\definecolor{Violet}{rgb}{0.8,0,1}
+\definecolor{grey}{rgb}{0.95,0.95,0.95}
+\definecolor{blue}{rgb}{0,0,0.78}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{green}{rgb}{0,0.5,0}
+\newcolumntype{g}{>{\columncolor{LightGrey}}p{3.5cm}}
+
+\usepackage{listings}
+
+\lstdefinestyle{LangC}{ 
+ language=c,
+ backgroundcolor=\color{LightGrey},
+ keywordstyle=\color{Violet}\bfseries,
+ commentstyle=\color{Green},
+ stringstyle=\color{Blue},
+ showstringspaces=false,
+ basicstyle=\scriptsize,
+ captionpos=b,
+ tabsize=4,
+ breaklines=true,
+ numbers=none,   %none,left,...
+ numberstyle=\tiny,
+ numbersep=5pt
+}
+
+\lstdefinestyle{LangJava}{ 
+ language=java,
+ backgroundcolor=\color{LightGrey},
+ keywordstyle=\color{Violet}\bfseries,
+ commentstyle=\color{Green},
+ stringstyle=\color{Blue},
+ showstringspaces=false,
+ basicstyle=\scriptsize,
+ captionpos=b,
+ tabsize=4,
+ breaklines=true,
+ numbers=none,   %none,left,...
+ numberstyle=\tiny,
+ numbersep=5pt
+}
+
+\lstdefinestyle{LangXML}{ 
+ language=xml,
+ backgroundcolor=\color{LightGrey},
+ keywordstyle=\color{Violet}\bfseries,
+ commentstyle=\color{Green},
+ stringstyle=\color{Blue},
+ showstringspaces=false,
+ basicstyle=\scriptsize,
+ captionpos=b,
+ tabsize=4,
+ breaklines=true,
+ numbers=none,   %none,left,...
+ numberstyle=\tiny,
+ numbersep=5pt
+}
+
+\lstdefinestyle{LangHTML}{ 
+ language=html,
+ backgroundcolor=\color{LightGrey},
+ keywordstyle=\color{Violet}\bfseries,
+ commentstyle=\color{Green},
+ stringstyle=\color{Blue},
+ showstringspaces=false,
+ basicstyle=\scriptsize,
+ captionpos=b,
+ tabsize=4,
+ breaklines=true,
+ numbers=none,   %none,left,...
+ numberstyle=\tiny,
+ numbersep=5pt
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PDF-Infos                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+  \pdfinfo{
+  /Title (Generisches Testsystem)
+  /Subject (MSc Engineering Master-Thesis)
+  /Author (Wacher Tim)
+  /Keywords (Generisches Testsystem, RTOS, Performance-Messungen, QNX)
+  }
+\fi
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Dateiendungen für Grafiken                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+    \DeclareGraphicsExtensions{.pdf,.jpg,.png, .PDF, .JPG, .PNG}
+\else
+    \DeclareGraphicsExtensions{.eps}
+\fi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Positionierung von Tabellen und Grafiken                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}
+\usepackage{footnote}
+\usepackage{lipsum}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Eigene Umgebungen und Befehle                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Masseinheit in aufrechter Schrift und mit kleinem Zwischenraum zur Zahl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{unit}{\, \mathrm}{}
+
+\definecolor{matlabcolor}{rgb}{0,0.5,0}
+\newenvironment{matlab}{\texttt\bgroup\textcolor{matlabcolor}\bgroup }{ \egroup\egroup }
+\newcommand{\ml}[1]{\texttt{\textcolor{matlabcolor}{#1}}}
+
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{helvet}
+
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb} 
+\usepackage{subfigure}
+\setlength{\parindent}{0ex}
+
+% Anhang mit Grossbuchstaben nummerieren
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\initAnhang}{
+	\renewcommand{\thepage}{\Alph{chapter}\ \arabic{page}}
+	\newpage
+}
+
+\newcommand{\anhang}[1]{
+    \setcounter{page}{1}
+    \input{#1}
+    \newpage
+}
+

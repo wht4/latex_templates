@@ -1,18 +1,12 @@
 # Latex Templates
 
 ## Brief
-This project includes multiple examples for Latex documentation. The project 
-includes the following templates:
+This project includes multiple examples for Latex documentation.
 
 ### Review
 
-#### template
-A generic template for a review documents.
-
-### hw_review
-A template for a hardware review.
-
-### sw_review
-A template for a software review.
+* <b>template:</b> A generic template for a review documents.
+* <b>hw_review:</b> A template for a hardware review.
+* <b>sw_review:</b> A template for a software review.
 
 
