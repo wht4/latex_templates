@@ -12,3 +12,11 @@ This project includes multiple examples for Latex documentation.
 ### Documentation
 
 A template for a techincal documentation.
+
+### Protocol
+
+A template for a meeting-protocol
+
+### Report
+
+A generic template for a technical report
