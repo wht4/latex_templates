@@ -1,0 +1,94 @@
+
+
+\input{preamble}
+\title{Hardware Review}
+\subtitle{Projekt: }
+\author{Wacher Tim}
+
+
+\begin{document}
+\ \\[0cm]
+\begin{tikzpicture}
+\draw(0,0)--(\textwidth,0)--(\textwidth,-2cm)--(0,-2cm)--(0,0);
+\node at (0.32\textwidth,-1){%
+\begin{minipage}[t]{0.6\textwidth}
+\Huge{\textsf{Hardware Review}}\\[0.8ex]
+\large{\textsf{Projekt:}}
+\end{minipage}
+};
+\node at (\textwidth+3mm,-1.25){%
+\begin{minipage}[t]{0.8\textwidth}
+\textsf{HW-Version:}\\[1.8mm]
+\textsf{Reviewer:}\\[1.8mm]
+\textsf{Datum:}\\
+\end{minipage}
+};
+
+
+\AddToShipoutPicture{%
+\put(80,30){%
+\begin{tikzpicture}
+\draw(0,0.8cm)--(\textwidth,0.8);
+\node at(140mm,4mm)[anchor=west]{\textsf{page \arabic{page}}};
+\end{tikzpicture}
+}}
+
+
+\AddToShipoutPicture{%
+\put(80,760){%
+\begin{tikzpicture}
+\draw(0,-0.8cm)--(\textwidth,-0.8);
+\node[inner sep=0pt] (russell) at (1,0)
+    {\includegraphics[width=.08\textwidth]{img/icon.png}};
+\end{tikzpicture}
+}}
+
+\draw (0.6\textwidth,0)--(0.6\textwidth,-2cm);
+\draw (0.6\textwidth,-0.666cm)--(\textwidth,-0.666cm);
+\draw (0.6\textwidth,-1.333cm)--(\textwidth,-1.333cm);
+\draw (0.77\textwidth,0)--(0.77\textwidth,-2cm);
+\end{tikzpicture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Einleitung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Einleitung}
+
+\subsection{Material}
+
+\subsubsection{Kommentar}
+
+\kommentarfeld[25]
+
+\tickbox[Tickbox]
+
+\requirement[1.1, {Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's standard 
+dummy text ever since the 1500s, when an unknown printer took a galley 
+of type and scrambled it to make a type specimen book.}, Okay]
+
+
+\newpage 
+\section{Lorem Ipsum}
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+when an unknown printer took a galley of type and scrambled it to make a type 
+specimen book. It has survived not only five centuries, but also the leap into 
+electronic typesetting, remaining essentially unchanged. It was popularised in 
+the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+and more recently with desktop publishing software like Aldus PageMaker 
+including versions of Lorem Ipsum.
+\newpage 
+\section{Lorem Ipsum I}
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+when an unknown printer took a galley of type and scrambled it to make a type 
+specimen book. It has survived not only five centuries, but also the leap into 
+electronic typesetting, remaining essentially unchanged. It was popularised in 
+the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+and more recently with desktop publishing software like Aldus PageMaker 
+including versions of Lorem Ipsum.
+
+
+
+\end{document}
