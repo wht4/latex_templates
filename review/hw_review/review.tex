@@ -1,0 +1,290 @@
+%
+% HW-Review Template 
+% ===========================================================================
+% Autor: Wacher Tim
+% 
+
+\input{preamble}
+\title{Hardware Review}
+\author{Wacher Tim}
+
+
+\begin{document}
+\ \\[0cm]
+\begin{tikzpicture}
+\draw(0,0)--(\textwidth,0)--(\textwidth,-2cm)--(0,-2cm)--(0,0);
+\node at (0.32\textwidth,-1){%
+\begin{minipage}[t]{0.6\textwidth}
+\huge{\textsf{Hardware Review}}\\[0.5ex]
+\large{\textsf{Projektname:}}\\[0.6ex]
+\large{\textsf{Projektpfad:}}
+\end{minipage}
+};
+\node at (\textwidth+3mm,-1.25){%
+\begin{minipage}[t]{0.8\textwidth}
+\textsf{HW-Version:}\\[1.8mm]
+\textsf{Reviewer:}\\[1.8mm]
+\textsf{Datum:}\\
+\end{minipage}
+};
+
+
+\AddToShipoutPicture{%
+\put(80,40){%
+\begin{tikzpicture}
+\draw(0,0.8cm)--(\textwidth,0.8);
+\node at(140mm,4mm)[anchor=west]{\textsf{page \arabic{page}}};
+\end{tikzpicture}
+}}
+
+
+\AddToShipoutPicture{%
+\put(80,760){%
+\begin{tikzpicture}
+\draw(0,-0.8cm)--(\textwidth,-0.8);
+\node[inner sep=0pt] (russell) at (1,0)
+    {\includegraphics[width=.075\textwidth]{img/icon.png}};
+\end{tikzpicture}
+}}
+
+\draw (0.6\textwidth,0)--(0.6\textwidth,-2cm);
+\draw (0.6\textwidth,-0.666cm)--(\textwidth,-0.666cm);
+\draw (0.6\textwidth,-1.333cm)--(\textwidth,-1.333cm);
+\draw (0.77\textwidth,0)--(0.77\textwidth,-2cm);
+\end{tikzpicture}
+
+
+% ===========================================================================
+\section{HW-Review Zusammenfassung}
+
+\textbf{Notwendige Änderungen:} \newline
+\kommentarfeld[23]
+
+
+% ===========================================================================
+\section{Schematics}
+
+\subsection{Allgemeine Regeln}
+
+\requirement[2.1.1 (advisory), {Alle im Projekt angefügten Schaltplan-Blätter haben die 
+selbe Grösse und Ausrichtung (A3 oder A4)}, Approved]
+
+\requirement[2.1.2 (required), {Alle im Projekt angefügten Schaltplan-Blätter verfügen über 
+eine Versionsnummer und ein dazugehöriges Datum}, Approved]
+
+\requirement[2.1.3 (required), {Der Autor und die Abteilung/Institut ist auf jedem Schaltplan-Blatt aufgeführt}, Approved]
+
+\requirement[2.1.4 (required), {Der Projektname ist auf jedem Schaltplan-Blatt aufgeführt}, Approved]
+
+\requirement[2.1.5 (advisory), {Alle Schaltplan-Blätter haben einen top-to-bottom oder 
+left-to-right  Datenfluss}, Approved]
+
+\requirement[2.1.6 (advisory), {Beschriftungen überdecken keine Leitungen oder Bauteile}, Approved]
+
+\subsection{Komponenten und Designators}
+
+\requirement[2.2.1 (required), {Alle Komponenten verfügen über einen eindeutigen Designator 
+(eindeutig innerhalb des Projektes) und einen sichtbaren Komponentenwert 
+(Einheit oder IC-Typ)}, Approved]
+
+\requirement[2.2.2 (required), {Alle Komponenten verfügen über einen zum Komponent 
+passenden Footprint}, Approved]
+
+\requirement[2.2.3 (advisory), {Schematische Symbole werden nicht für unterschiedliche Funktionen 
+verwendet (z.B. Widerstand als Jumper)}, Approved]
+
+\requirement[2.2.4 (required), {Bevorzugte Komponenten Prefix-Referenzen werden eingehalten}, Approved]
+\begin{table}[H]
+	\centering
+	\tiny
+	\begin{tabular}{c | l}
+        \textbf{Prefix} & \textbf{Funktion} \\ \hline 
+        R & Festwiderstand \\ \hline
+        RN & Widerstandsnetzwerk \\ \hline 
+        RV & Variabler Widerstand \\ \hline 
+        C & Kondensator \\ \hline 
+        L & Induktivität \\ \hline 
+        Q & Transistor - FET, SCR, TRIAC \\ \hline 
+        D & Diode, Gleichrichter, LED \\ \hline 
+        VR & Spannungsregler, Zener Diode \\ \hline 
+        U & Integrated Circuit \\ \hline 
+        J & Jack, socket (female) \\ \hline  
+        P & Plug (male) \\ \hline  
+        JP & Jumper \\ \hline  
+        Y & Crystal, Quartz \\ \hline  
+        S & Switch \\ \hline  
+        F & Sicherung, Fuse \\ \hline  
+        BT & Batterie, Solar Zelle \\ \hline 
+        TP & Test Point \\ \hline 
+    \end{tabular}
+\end{table}\normalsize 
+
+\requirement[2.2.5 (advisory), {Status LED vorgesehen?}, Approved]
+
+\subsection{Speisung}
+
+\requirement[2.3.1 (required), {Polarisierte Komponenten überprüft}, Approved]
+
+\requirement[2.3.2 (required), {Power nets (z.B. VCC, GND, ...) sind global über das gesamte 
+Projekt und nicht lokal pro Schaltplan-Blatt}, Approved]
+
+\requirement[2.3.3 (required), {Genügende Kapazität für LDO-Regler}, Approved]
+
+\requirement[2.3.4 (required), {Reverse-Speisungen durch Schutzdiode verhindert}, Approved]
+
+\requirement[2.3.5 (required), {Ausreichende Dimensionierung der Spannungsregler bezüglich 
+der notwendigen Leistung in Abhängigkeit der Temperatur}, Approved]
+
+\subsection{IC's}
+
+\requirement[2.4.1 (required), {Stimmen die Pin-Beschriftungen mit den Pin-Nummern überein}, Approved]
+
+\requirement[2.4.2 (required), {Alle nicht benutzten Pins sind als solche markiert (NC) oder abgeschlossen 
+(über Widerstand nach GND oder VCC)}, Approved]
+
+\requirement[2.4.3 (required), {Sind die Power-Pins mit der korrekten Speisung verbunden}, Approved]
+
+\requirement[2.4.4 (required), {Wurde für jeden Power-Pin des IC's ein Decoupling-Kondensator 
+vorgesehen}, Approved]
+
+\requirement[2.4.5 (required), {Spannungsauslegung des IC's überprüft}, Approved]
+
+\requirement[2.4.6 (required), {Alle IC's haben eine sichtbare Verbindung zu GND und Power}, Approved]
+
+\requirement[2.4.7 (required), {Pullups/Pulldowns an den notwendigen Pins}, Approved]
+
+\requirement[2.4.8 (required), {Pullups/Pulldowns Widerstandswert sinnvoll gewählt}, Approved]
+
+\requirement[2.4.10 (required), {Genauer IC-Typ ist aus Beschriftung ersichtlich (die Suche innerhalb einer 
+Suchmaschine sollte den eingesetzten Typ direkt finden)}, Approved]
+
+\requirement[2.4.11 (required), {Pinmux für $\mu$Controller überprüft}, Approved]
+
+
+\subsection{Connectors / Schnittstellen}
+
+\requirement[2.5.1 (required), {Pinout der Connector stimmen (nicht Spiegelverkehrt)}, Approved]
+
+\requirement[2.5.2 (required), {Alle Connector haben einen eindeutigen/beschreibenden 
+Namen (z.B. JTAG)}, Approved]
+
+\requirement[2.5.3 (required), {Pinbelegung der Connector stellt keine Gefahr für Device 
+dar (z.B. kein Connector VCC-Pin direkt neben Connector GND-Pin)}, Approved]
+
+\requirement[2.5.4 (required), {Leitungsverbindungen sind mit einem Dot markiert}, Approved]
+
+\requirement[2.5.5 (required), {$I^{2}C$ Pullup Widerstände vorgesehen}, Approved]
+
+\requirement[2.5.6 (required), {Alle $I^{2}C$ Devices haben eine eindeutige Adresse zugewiesen}, Approved]
+
+\requirement[2.5.7 (required), {UART: TX $\rightarrow$ RX; RX $\rightarrow$ TX; CTS $\rightarrow$ RTS; 
+RTS $\rightarrow$ CTS}, Approved]
+
+\requirement[2.5.8 (required), {JTAG: Pullup für TDO, TDI, und SWO; Pulldown für CLK vorgesehen}, Approved]
+
+
+% ===========================================================================
+\section{PCB}
+
+\subsection{Allgemeine Regeln}
+
+\requirement[3.1.1 (advisory), {PCB beinhaltet falls möglich Projektname, Version, 
+Firmenlogo und Kürzel des Erstellers}, Approved]
+
+\requirement[3.1.2 (advisory), {Alle Beschriftungen lesen sich in eine oder zwei 
+Richtungen}, Approved]
+
+\requirement[3.1.3 (required), {Design Rules überprüft (korrespondieren diese mit jenen des 
+PCB Herstellers)}, Approved]
+
+\requirement[3.1.4 (required), {Design Rule Check durchlaufen/bestanden}, Approved]
+
+\requirement[3.1.5 (advisory), {Montagelöcher vorgesehen}, Approved]
+
+\requirement[3.1.6 (required), {Vorgegebene maximale Abmessung nicht überschritten}, Approved]
+
+\requirement[3.1.7 (required), {Bestückbarkeit (Platzierung/Lötbarkeit der Bauteile)}, Approved]
+
+\requirement[3.1.7 (advisory), {Bestückungshilfe/-druck vorhanden und mit Schaltplan korrespondierend}, Approved]
+
+\requirement[3.1.7 (required), {Anordung der Komponenten mit Auftraggeber abgesprochen}, Approved]
+
+\subsection{Traces, Planes, Test Pads und Vias}
+
+\requirement[3.2.1 (required), {Test Pad oder Test Via für jedes kritische Netz 
+innerhalb des Designs vorgesehen}, Approved]
+
+\requirement[3.2.2 (required), {GND Plane wo immer möglich}, Approved]
+
+\requirement[3.2.3 (required), {Traces und Planes haben genügend Abstand zum Rand des 
+PCB's}, Approved]
+
+\requirement[3.2.4 (required), {Keine Traces unter "noisy" oder sensitiven Komponenten?}, Approved]
+
+\requirement[3.2.5 (required), {Kritische Signalpfade so kurz als möglich (inkl. Return Pfad 
+direkt unter dem Signal)}, Approved]
+
+\requirement[3.2.6 (required), {Leiterbahnbreite entsprechend den maximalen Strömen ausgelegt}, Approved]
+
+\requirement[3.2.7 (required), {Leiterbahn-Abstand entsprechend den Spannungen ausgelegt}, Approved]
+
+\requirement[3.2.8 (required), {Keine Vias innerhalb von Pads}, Approved]
+
+\requirement[3.2.9 (required), {Keine Vias unter Metal-Film-Widerständen, Batterien, IC's mit Masseflächen 
+oder schlecht isolierenden Komponenten}, Approved]
+
+\requirement[3.2.10 (required), {Vias falls nötig mit Abdeckfolie abgedeckt}, Approved]
+
+\requirement[3.2.11 (required), {Minimale Via-Durchmesser eingehalten}, Approved]
+
+\requirement[3.2.12 (required), {Wärmebrücken für Plane-Pad Verbindungen vorgesehen}, Approved]
+
+\subsection{Komponenten}
+
+\requirement[3.3.1 (required), {Komponenten Footprint: \begin{itemize}
+\item Pad zu Pin 1 markiert
+\item Kontrolle des Footprints mit Datenblatt (Zeichnung aus Top-View 
+oder Bottom-View)
+\item Keep-Out Area gemäss Komponenten Datenblatt spezifiziert
+\end{itemize}}, Approved]
+
+\requirement[3.3.2 (required), {Anzahl Pins der IC's im Schaltplan stimmen mit jenen im 
+PCB überein}, Approved]
+
+\requirement[3.3.3 (required), {Vom Komponenten-Hersteller im Datenblatt vorgeschlagenes 
+Layout umgesetzt}, Approved]
+
+\requirement[3.3.4 (required), {Decoupling Kondensatoren: \begin{itemize}
+\item Leitungen so kurz als möglich halten
+\item Loop zwischen IC und Kondensator so kurz als möglich halten
+\end{itemize}}, Approved]
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=.4\textwidth]{img/Decoupling.png}
+\end{figure}
+
+\requirement[3.3.5 (required), {Quarze und Crystals: \begin{itemize} 
+\item Fläche der Schaltung reduzieren
+\item Verbindungen kurz halten
+\item Möglichst weit von I/O Connectors entfernt
+\end{itemize}}, Approved]
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=.4\textwidth]{img/Quarz.png}
+\end{figure}
+
+\requirement[3.3.6 (advisory), {Potentiometer erhöht die kontrollierte Grösse im 
+Uhrzeigersinn}, Approved]
+
+\requirement[3.3.7 (advisory), {I/O Connectors sind am Rand des PCB's platziert}, Approved]
+
+\requirement[3.3.8 (required), {Alle polarisierten Komponenten überprüft}, Approved]
+
+
+
+% ===========================================================================
+\end{document}
+%
+% ===========================================================================
+% EOF
+%
