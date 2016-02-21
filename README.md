@@ -9,4 +9,6 @@ This project includes multiple examples for Latex documentation.
 * <b>hw_review:</b> A template for a hardware review.
 * <b>sw_review:</b> A template for a software review.
 
+### Documentation
 
+A template for a techincal documentation.

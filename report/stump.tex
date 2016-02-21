@@ -1,0 +1,292 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optionen zum Layout des Skripts                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[ 
+a4paper,
+headsepline,
+footsepline
+]
+{article}
+\usepackage{a4wide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Deutsche Anpassung                                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[ngerman]{babel}            % deutsch, neue Rechtschreibung
+%\usepackage[T1]{fontenc}               % Silbentrennung bei Umlauten
+%\usepackage[utf8]{inputenc}            % Zeichencodierung
+\usepackage{german, ngerman}
+\usepackage[german]{babel}
+
+%Eingabe von ü,ä,ö,ß erlauben
+% unter Linux:
+\usepackage[latin1]{inputenc}
+% unter Windows:
+%\usepackage[ansinew]{inputenc}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Einstellungen                                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\pagestyle{empty}              % keine Kopf und Fuzeile (k. Seitenzahl)
+%\pagestyle{headings}           % lebender Kolumnentitel  
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Unterscheidung zw. pdf und dvi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ifpdf}
+
+
+% Text 1:1 Übernehmen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{verbatim} 
+
+
+% Links im PDF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\ifpdf
+%  \usepackage[
+%  pdftex,
+%  colorlinks,               % Schrift in Farbe, sonst mit Rahmen
+%  bookmarksnumbered,        % Inhaltsverzeichnis mit Numerierung
+%  bookmarksopen,            % Öffnet das Inhaltsverzeichnis
+% %pdfstartview=FitH,       % startet mit Seitenbreite
+%  linkcolor=blue,          % standard red
+%  citecolor=blue,           % standard green
+%  urlcolor=blue,         % standard cyan
+%  filecolor=blue            %
+%  ]
+%  {hyperref}
+%\fi
+
+
+% Farben
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+  \usepackage[pdftex]{color}
+\else
+  \usepackage[dvips]{color}
+\fi
+
+% Fonts für pdfLaTeX, falls keine cm-super-Fonts installiert
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+    %\usepackage{ae}        % Benutzen Sie nur
+    %\usepackage{zefonts}      % eines dieser Pakete
+\else
+    %%Normales LaTeX - keine speziellen Fontpackages notwendig
+\fi
+
+
+% Packages für Grafiken & Abbildungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf %%Einbindung von Grafiken mittels \includegraphics{datei}
+    \usepackage[pdftex]{graphicx} %%Grafiken in pdfLaTeX
+    \usepackage{epstopdf}
+\else
+    \usepackage[dvips]{graphicx} %%Grafiken und normales LaTeX
+\fi
+%\usepackage[hang]{subfigure} %%Mehrere Teilabbildungen in einer Abbildung
+%\usepackage{pst-all} %%PSTricks - nicht verwendbar mit pdfLaTeX
+\usepackage{wrapfig}
+\usepackage{pdfpages}
+
+% optischer Randausgleich, falls pdflatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+  \usepackage[activate]{pdfcprot}
+\fi
+
+
+% Bibliographiestil
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{natbib}
+
+
+% Tabellen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}            % Tabellenlinien verschiedener StÃ¤rken
+\usepackage{tabularx}            % fixe Gesamtbreite
+\usepackage{threeparttable}      % Tabellen mit Fussnoten
+\usepackage{multirow}            % Zeilen verbinden
+
+
+% Diagramme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,mindmap,trees}
+
+
+% Listings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\definecolor{Grey}{rgb}{0.5,0.5.0.5}
+\definecolor{LightGrey}{rgb}{0.95,0.95,0.95}
+\definecolor{Blue}{rgb}{0,0,1}
+\definecolor{White}{rgb}{1,1,1}
+\definecolor{Red}{rgb}{1,0,0}
+\definecolor{Green}{rgb}{0,0.5,0}   
+\definecolor{Violet}{rgb}{0.8,0,1}
+\definecolor{grey}{rgb}{0.95,0.95,0.95}
+\definecolor{blue}{rgb}{0,0,0.78}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{green}{rgb}{0,0.5,0}  
+\newcolumntype{g}{>{\columncolor{LightGrey}}p{3.5cm}}
+
+\usepackage{listings}
+
+\lstdefinestyle{ml}{ 
+ language=c,
+ backgroundcolor=\color{LightGrey},
+ keywordstyle=\color{Violet}\bfseries,
+ commentstyle=\color{Green},
+ stringstyle=\color{Red},
+ showstringspaces=false,
+ basicstyle=\scriptsize,
+ captionpos=b,
+ tabsize=4,
+ breaklines=true,
+ numbers=none,   %none,left,...
+ numberstyle=\tiny,
+ numbersep=5pt
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PDF-Infos                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+  \pdfinfo{
+  /Title (Template Report)
+  /Subject (Template Report)
+  /Author (Wacher Tim)
+  /Keywords (Template Report)
+  }
+\fi
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Dateiendungen für Grafiken                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf
+    \DeclareGraphicsExtensions{.pdf,.jpg,.png, .PDF, .JPG, .PNG}
+\else
+    \DeclareGraphicsExtensions{.eps}
+\fi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Positionierung von Tabellen und Grafiken                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Eigene Umgebungen und Befehle                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Masseinheit in aufrechter Schrift und mit kleinem Zwischenraum zur Zahl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{unit}{\, \mathrm}{}
+
+\definecolor{matlabcolor}{rgb}{0,0.5,0}
+\newenvironment{matlab}{\texttt\bgroup\textcolor{matlabcolor}\bgroup }{ \egroup\egroup }
+\newcommand{\ml}[1]{\texttt{\textcolor{matlabcolor}{#1}}}
+
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{helvet}
+
+\usepackage{amsmath}
+\usepackage{dsfont}
+%\usepackage{amsfonts}
+%\usepackage{amssymb} 
+\usepackage{subfig}
+\setlength{\parindent}{0ex}
+
+ 
+\begin{document}
+
+\title{Template Report}
+ 
+\author{Wacher Tim; wht4@bfh.ch}
+
+\date{Burgdorf, \today; v1.0}
+ 
+%-----------------------------------------------------------------------
+% If your printer does not reproduce dimensions exactly, it may be
+% necessary to remove the % signs and adjust the dimensions in the
+% following commands:
+%
+%     \setlength{\textheight}{24cm}
+%     \setlength{\textwidth}{16cm}
+%
+% Similarly for the following, if you need to adjust the positioning
+% on the paper:
+%
+%     \setlength{\topmargin}{-1cm}
+%     \setlength{\oddsidemargin}{0pt}
+%     \setlength{\evensidemargin}{0pt}
+%------------------------------------------------------------------------
+ 
+\maketitle % this produces the title block
+ 
+\begin{abstract}
+Short instruction of the report theme. This is just a brief seqeunce. Keep 
+it short!
+\end{abstract}
+ 
+% ===========================================================================
+\section{Einleitung}
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem 
+Ipsum has been the industry's standard dummy text ever since the 1500s, when an 
+unknown printer took a galley of type and scrambled it to make a type specimen book. 
+It has survived not only five centuries, but also the leap into electronic typesetting, 
+remaining essentially unchanged. It was popularised in the 1960s with the release of 
+Letraset sheets containing Lorem Ipsum passages, and more recently with desktop 
+publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+
+
+% ===========================================================================
+\section{Section 2}
+
+\subsection{Subsection 2.1}
+
+\subsection{Subsection 2.2}
+
+
+
+% ===========================================================================
+\section{Section 3} 
+
+\subsection{Subsection 3.1}
+
+
+\subsection{Subsection 3.2}
+
+
+
+% ===========================================================================
+
+
+
+\end{document}
+
+
