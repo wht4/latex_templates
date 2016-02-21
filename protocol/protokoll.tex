@@ -1,0 +1,101 @@
+
+
+\input{preamble}
+\title{Sitzungsprotokoll}
+\subtitle{Projekt: }
+\author{Wacher Tim}
+
+
+\begin{document}
+\ \\[0cm]
+\begin{tikzpicture}
+\draw(0,0)--(\textwidth,0)--(\textwidth,-2cm)--(0,-2cm)--(0,0);
+\node at (0.32\textwidth,-1){%
+\begin{minipage}[t]{0.6\textwidth}
+\Huge{\textsf{Sitzungsprotokoll}}\\[0.8ex]
+\large{\textsf{Projekt}}
+\end{minipage}
+};
+\node at (\textwidth+3mm,-1.25){%
+\begin{minipage}[t]{0.8\textwidth}
+\textsf{Company:}\\[1.8mm]
+\textsf{Location:}\\[1.8mm]
+\textsf{Datum:}\\
+\end{minipage}
+};
+
+\node at (\textwidth+3mm,-1.25){%
+\begin{minipage}[t]{0.47\textwidth}
+\textsf{xxx}\\[1.8mm]
+\textsf{Langnau}\\[1.8mm]
+\textsf{\today}\\
+\end{minipage}
+};
+
+
+\AddToShipoutPicture{%
+\put(80,30){%
+\begin{tikzpicture}
+\draw(0,0.8cm)--(\textwidth,0.8);
+\node at(140mm,4mm)[anchor=west]{\textsf{page \arabic{page}}};
+\end{tikzpicture}
+}}
+
+
+\AddToShipoutPicture{%
+\put(80,760){%
+\begin{tikzpicture}
+\draw(0,-0.8cm)--(\textwidth,-0.8);
+\node[inner sep=0pt] (russell) at (1,0)
+    {\includegraphics[width=.08\textwidth]{img/icon.png}};
+\end{tikzpicture}
+}}
+
+\draw (0.6\textwidth,0)--(0.6\textwidth,-2cm);
+\draw (0.6\textwidth,-0.666cm)--(\textwidth,-0.666cm);
+\draw (0.6\textwidth,-1.333cm)--(\textwidth,-1.333cm);
+\draw (0.77\textwidth,0)--(0.77\textwidth,-2cm);
+\end{tikzpicture}
+
+
+\begin{table}[H]
+	\centering
+\begin{tabular}{l p{12cm}}
+Teilnehmer & Wacher Tim, .... \\
+Trakdanden & Trakdandum 1 \newline
+             Trakdandum 2 \newline
+             Trakdandum 3 \\
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Trakdandum 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trakdandum 1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Trakdandum 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trakdandum 2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Trakdandum 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trakdandum 3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Geplante Massnahmen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Geplante Massnahmen}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Weiteres Vorgehen/Termine
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Weiteres Vorgehen/Termine}
+
+
+\end{document}
